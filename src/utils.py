@@ -7,6 +7,7 @@ import pandas as pd
 import dill
 from src.exception import CustomException
 from sklearn.metrics import r2_score
+from sklearn.model_selection import GridSearchCV
 
 def save_object(file_path,obj):
     ''' Function is responsible for saving file as pkl'''
@@ -22,15 +23,21 @@ def save_object(file_path,obj):
         raise CustomException(e,sys)
 
 
-def evaluate_model(xtrain,ytrain,xtest,ytest,models):
+def evaluate_model(xtrain,ytrain,xtest,ytest,models,params):
     try: 
         report = {}
 
         for i in range(len(list(models))):
             model = list(models.values())[i]
+            prm = params[list(models.keys())[i]]
+            gsc = GridSearchCV(model,prm,cv = 3)
 
-            model.fit(xtrain,ytrain)
+            gsc.fit(xtrain,ytrain)
             
+            model.set_params(**gsc.best_params_)
+            
+            model.fit(xtrain,ytrain)
+
             y_train_pred = model.predict(xtrain)
 
             y_test_pred = model.predict(xtest)
