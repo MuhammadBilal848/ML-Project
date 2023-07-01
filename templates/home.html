@@ -4,9 +4,7 @@
        <h1>Student Exam Performance Indicator</h1>
             <!-- predict_datapoint is a function in app.py -->
        <form action="{{ url_for('predict_datapoint')}}" method="post">
-        <h1>
-            <legend>Student Exam Performance Prediction</legend>
-        </h1>
+
         <div class="mb-3">
             <label class="form-label">Gender</label>
             <select class="form-control" name="gender" placeholder="Enter you Gender" required>
