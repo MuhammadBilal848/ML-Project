@@ -15,7 +15,7 @@ By analyzing these parameters along with the subject scores, the model aims to p
 ## Installation
 
 1. First clone the repository or download the zip by clicking on the code dropdown.
-2. Open **Anaconda Prompt Powershell** <code>Hello</code>or **Anaconda Prompt (Anaconda3)** from your startup. It should show something like this: 
+2. Open **Anaconda Prompt Powershell** or **Anaconda Prompt (Anaconda3)** from your startup. It should show something like this: 
 ```bash
 (base) PS C:\Users\User_Name >
 ```
